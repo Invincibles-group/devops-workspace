@@ -1,4 +1,4 @@
-namespace: tripspark
+namespace: rod
 
 resources:
   - resources/configmap.yaml
