@@ -3,3 +3,8 @@ kind: Namespace
 metadata:
   name: rod
 
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tripspark
