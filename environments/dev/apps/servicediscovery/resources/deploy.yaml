@@ -50,4 +50,4 @@ spec:
           name: servicediscovery-config
       - name: sqlite-volume
         persistentVolumeClaim:
-          claimName: sqlite-pvc
+          claimName: servicediscovery-pvc
