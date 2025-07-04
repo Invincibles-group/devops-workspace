@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: servicediscovery-config
+data:
+  appsettings.json: |
+    {
+      "AllowedHosts": "*",
+      "ConnectionString": "",
+      "AuthServiceAddress": ""
+    }
+  AuthServiceAddress: "http://authservice.hemant.cloud"
+  

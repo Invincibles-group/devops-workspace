@@ -1,0 +1,8 @@
+namespace: tripspark
+
+resources:
+  - resources/configmap.yaml
+  - resources/deploy.yaml
+  - resources/pvc.yaml
+  - resources/secret.yaml
+  - resources/service.yaml

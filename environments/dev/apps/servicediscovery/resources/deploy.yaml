@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servicediscovery-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: servicediscovery
+  template:
+    metadata:
+      labels:
+        app: servicediscovery
+    spec:
+      containers:
+      - name: servicediscovery-container
+        image: acrcancendevopsworkshop.azurecr.io/service-discovery:latest
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+        - name: sqlite-volume
+          mountPath: /data
+        env:
+        - name: AuthServiceAddress
+          valueFrom:
+            configMapKeyRef:
+              name: servicediscovery-config
+              key: AuthServiceAddress
+        - name: ConnectionString
+          valueFrom:
+            secretKeyRef:
+              name: servicediscovery-secrets
+              key: ConnectionString
+        - name: AuthServiceClientId
+          valueFrom:
+            secretKeyRef:
+              name: servicediscovery-secrets
+              key: AuthServiceClientId
+        - name: AuthServiceClientSecret
+          valueFrom:
+            secretKeyRef:
+              name: servicediscovery-secrets
+              key: AuthServiceClientSecret
+      volumes:
+      - name: config-volume
+        configMap:
+          name: servicediscovery-config
+      - name: sqlite-volume
+        persistentVolumeClaim:
+          claimName: sqlite-pvc
