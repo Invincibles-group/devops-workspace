@@ -41,7 +41,7 @@ spec:
             secretKeyRef:
               name: servicediscovery-secrets
               key: AuthServiceClientId
-              
+
         - name: AuthServiceClientSecret
           valueFrom:
             secretKeyRef:
@@ -53,4 +53,4 @@ spec:
           name: servicediscovery-config
       - name: sqlite-volume
         persistentVolumeClaim:
-          claimName: servicediscovery-pvc
+          claimName: servicediscovery-pvc2
