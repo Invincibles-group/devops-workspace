@@ -24,6 +24,8 @@ spec:
         - name: sqlite-volume
           mountPath: /data
         env:
+        - name: ASPNETCORE_URLS
+          value: http://+:8011
         - name: AuthServiceAddress
           valueFrom:
             configMapKeyRef:
