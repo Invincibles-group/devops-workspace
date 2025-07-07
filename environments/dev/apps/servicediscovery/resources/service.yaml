@@ -3,7 +3,8 @@ kind: Service
 metadata:
   name: servicediscovery-service
   annotations:
-    service.beta.kubernetes.io/azure-load-balancer-resource-group: rg-cancen-devops-workshop  
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: rg-cancen-devops-workshop 
+    service.beta.kubernetes.io/azure-pip-name: service-discovery-pip
 spec:
   selector:
     app: servicediscovery
@@ -12,4 +13,4 @@ spec:
       port: 80
       targetPort: 8080
   type: LoadBalancer
-  loadBalancerIP: 130.107.129.97
+
