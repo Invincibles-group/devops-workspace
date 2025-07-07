@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: servicediscovery-pvc
 spec:
+  storageClassName: default
   accessModes:
     - ReadWriteOnce
   resources:

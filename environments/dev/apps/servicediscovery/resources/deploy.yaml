@@ -41,6 +41,7 @@ spec:
             secretKeyRef:
               name: servicediscovery-secrets
               key: AuthServiceClientId
+              
         - name: AuthServiceClientSecret
           valueFrom:
             secretKeyRef:
