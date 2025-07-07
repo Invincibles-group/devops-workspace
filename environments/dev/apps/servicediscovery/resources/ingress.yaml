@@ -2,12 +2,19 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: servicediscovery-ingress
-  namespace: default
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    # Optional: Force redirect HTTP to HTTPS
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # Optional: Use HTTP/2
+    nginx.ingress.kubernetes.io/use-http2: "true"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - service.hemant.cloud
+      secretName: servicediscovery-tls
   rules:
     - host: service.hemant.cloud
       http:
@@ -19,7 +26,3 @@ spec:
                 name: servicediscovery-service
                 port:
                   number: 80
-  tls:
-    - hosts:
-        - service.hemant.cloud
-      secretName: servicediscovery-tls
