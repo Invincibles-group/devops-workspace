@@ -4,6 +4,7 @@ metadata:
   name: servicediscovery-service
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-resource-group: rg-cancen-devops-workshop  
+spec:
   selector:
     app: servicediscovery
   ports:
