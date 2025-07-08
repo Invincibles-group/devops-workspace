@@ -6,10 +6,10 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
-  # tls:
-  #   - hosts:
-  #       - service.hemant.cloud
-  #     secretName: servicediscovery-tls
+  tls:
+    - hosts:
+        - service.hemant.cloud
+      secretName: servicediscovery-tls
   rules:
     - host: service.hemant.cloud
       http:
