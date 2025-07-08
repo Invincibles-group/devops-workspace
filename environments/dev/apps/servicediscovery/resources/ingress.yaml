@@ -3,14 +3,13 @@ kind: Ingress
 metadata:
   name: servicediscovery-ingress
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
-  tls:
-    - hosts:
-        - service.hemant.cloud
-      secretName: servicediscovery-tls
+  # tls:
+  #   - hosts:
+  #       - service.hemant.cloud
+  #     secretName: servicediscovery-tls
   rules:
     - host: service.hemant.cloud
       http:
