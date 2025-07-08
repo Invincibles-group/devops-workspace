@@ -9,5 +9,5 @@ data:
       "ConnectionString": "",
       "AuthServiceAddress": ""
     }
-  AuthServiceAddress: "http://authservice.hemant.cloud"
+  AuthServiceAddress: "https://auth.hemant.cloud"
   

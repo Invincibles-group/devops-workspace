@@ -32,16 +32,12 @@ spec:
               name: servicediscovery-config
               key: AuthServiceAddress
         - name: ConnectionString
-          valueFrom:
-            secretKeyRef:
-              name: servicediscovery-secrets
-              key: ConnectionString
+          value: "Data Source=/data/Database.db;"
         - name: AuthServiceClientId
           valueFrom:
             secretKeyRef:
               name: servicediscovery-secrets
               key: AuthServiceClientId
-
         - name: AuthServiceClientSecret
           valueFrom:
             secretKeyRef:
@@ -52,5 +48,4 @@ spec:
         configMap:
           name: servicediscovery-config
       - name: sqlite-volume
-        persistentVolumeClaim:
-          claimName: servicediscovery-pvc2
+        emptyDir: {}  # Temporary storage, data lost on pod restart
