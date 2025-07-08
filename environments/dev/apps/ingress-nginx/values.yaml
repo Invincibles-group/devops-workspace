@@ -1,3 +1,7 @@
 controller:
   config:
     strict-validate-path-type: false
+  service:
+      annotations:
+        service.beta.kubernetes.io/azure-load-balancer-resource-group: "rg-cancen-devops-workshop"
+        service.beta.kubernetes.io/azure-pip-name: "devops-workshop-nginx-ingress-pip"
