@@ -1,0 +1,3 @@
+controller:
+  config:
+    strict-validate-path-type: false
