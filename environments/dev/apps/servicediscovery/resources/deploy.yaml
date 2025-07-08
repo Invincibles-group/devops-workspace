@@ -32,7 +32,10 @@ spec:
               name: servicediscovery-config
               key: AuthServiceAddress
         - name: ConnectionString
-          value: "Data Source=/data/Database.db;"
+          valueFrom:
+            secretKeyRef:
+              name: servicediscovery-secrets
+              key: ConnectionString
         - name: AuthServiceClientId
           valueFrom:
             secretKeyRef:
