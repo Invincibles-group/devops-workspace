@@ -5,15 +5,13 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-    # Optional: Force redirect HTTP to HTTPS
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
  
 spec:
   ingressClassName: nginx
   tls:
     - hosts:
         - service.hemant.cloud
-      secretName: servicediscovery-tls-new
+      secretName: servicediscovery-tls
   rules:
     - host: service.hemant.cloud
       http:
