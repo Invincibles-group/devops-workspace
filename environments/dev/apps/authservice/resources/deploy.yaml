@@ -29,3 +29,7 @@ spec:
             secretKeyRef:
               name: authservice-secrets
               key: ConnectionStrings__AuthService
+      volumes:
+      - name: config-volume
+        configMap:
+          name: authservice-config
