@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: authservice-config
+data:
+  appsettings.json: |
+  {
+    
+    "AuthCookies": {
+      "AuthCookieName": "OrbitAuth",
+      "IdentityCookieName": "OrbitIdentity",
+      "Expiration": "14.00:00:00"
+    },
+    "Services": {
+      "PoliciesService": {
+        "Address": "https://policies.tripsparkdemo.com",
+        "Audience": "policies",
+        "Scopes": [ "policies.read" ]
+      }
+    },
+    "ServiceDiscovery": {
+      "ServiceRegistryAddress": "http://servicediscovery-service:80",
+      "Audience": "service_discovery",
+      "Scopes": [ "service_discovery" ]
+    },
+    "DefaultTokenIssuerUri": "https://auth.hemant.cloud",
+    "AllowedHosts": "*"
+  }
+
+  

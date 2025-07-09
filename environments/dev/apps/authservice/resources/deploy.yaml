@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authservice-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authservice
+  template:
+    metadata:
+      labels:
+        app: authservice
+    spec:
+      containers:
+      - name: authservice-container
+        image: acrcancendevopsworkshop.azurecr.io/auth-service:latest
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/appsettings.json
+          subPath: appsettings.json
+        env:
+        - name: ASPNETCORE_URLS
+          value: http://+:8080
+        - name: ConnectionStrings__AuthService
+          valueFrom:
+            secretKeyRef:
+              name: authservice-secrets
+              key: ConnectionStrings__AuthService
