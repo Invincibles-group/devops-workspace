@@ -18,7 +18,7 @@ data:
           }
         },
         "ServiceDiscovery": {
-          "ServiceRegistryAddress": "http://servicediscovery-service.rod.svc.cluster.local:80",
+          "ServiceRegistryAddress": "https://service.hemant.cloud",
           "Audience": "service_discovery",
           "Scopes": [ "service_discovery" ]
         },
